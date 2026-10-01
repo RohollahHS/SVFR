@@ -80,7 +80,7 @@ def main(config,args):
     else:
         print("CUDA_VISIBLE_DEVICES is not set.")
 
-    save_dir=f"{BASE_DIR}/{args.output_dir}"
+    save_dir = args.output_dir
     os.makedirs(save_dir,exist_ok=True)
 
     vae=AutoencoderKLTemporalDecoder.from_pretrained(
