@@ -377,9 +377,11 @@ def main(config,args):
     video=(video*0.5+0.5).clamp(0,1)
     video=torch.cat([video.to(device="cuda")],dim=0).cpu()
 
+    save_path = f"{save_dir}/{video_name[:-4]}_{seed_input}_gen.mp4"
+    print(f"Saving to: {save_path}")
     save_videos_grid(
         video,
-        f"{save_dir}/{video_name[:-4]}_{seed_input}_gen.mp4",
+        save_path,
         n_rows=1,
         fps=25
     )
@@ -387,9 +389,11 @@ def main(config,args):
     lq_frames=lq_frames.permute(1,0,2,3).unsqueeze(0)
     lq_frames=(lq_frames*0.5+0.5).clamp(0,1).to(device="cuda").cpu()
 
+    save_path = f"{save_dir}/{video_name[:-4]}_{seed_input}_ori.mp4"
+    print(f"Saving to: {save_path}")
     save_videos_grid(
         lq_frames,
-        f"{save_dir}/{video_name[:-4]}_{seed_input}_ori.mp4",
+        save_path,
         n_rows=1,
         fps=25
     )

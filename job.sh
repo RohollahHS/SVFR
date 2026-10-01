@@ -48,6 +48,6 @@ output_dir=/scratch/rohhs/downloads/yt-dlp/enhanced
 
 export CUDA_VISIBLE_DEVICES=0
 
-python infer.py --config config/infer.yaml --task_ids 0 --input_path $input_path --output_dir $output_dir --crop_face_region
+python infer.py --config config/infer.yaml --task_ids 0 --input_path $input_path --output_dir $output_dir --crop_face_region --restore_frames
 
 pip install "diffusers==0.27.2" "huggingface-hub==0.23.4" "transformers==4.40.2" "accelerate==0.30.1" "safetensors==0.4.3"
